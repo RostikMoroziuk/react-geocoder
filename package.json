@@ -1,18 +1,14 @@
 {
-  "name": "react-geocoder",
-  "version": "2.5.0",
+  "name": "react-geocoder-mapbox",
+  "version": "2.5.6",
   "description": "a mapbox geocoder component",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "tape test.js",
-    "start": "watchify example/site.js -o example/bundle.js & st -nc"
+    "start": "watchify example/site.js -o example/bundle.js & st -nc",
+    "build": "babel --plugins  @babel/plugin-proposal-class-properties --presets @babel/preset-react src --ignore node_modules --out-dir ./lib"
   },
   "repository": "mapbox/react-geocoder.git",
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
   "keywords": [
     "react",
     "react-component",
@@ -28,13 +24,13 @@
   },
   "homepage": "https://github.com/mapbox/react-geocoder",
   "devDependencies": {
-    "browserify": "^6.2.0",
-    "st": "^0.5.2",
-    "tape": "^4.6.2",
-    "watchify": "^2.1.0"
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-react": "^7.0.0"
   },
   "dependencies": {
-    "babelify": "^6.0.0",
-    "react": "0.13.x"
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
   }
 }
