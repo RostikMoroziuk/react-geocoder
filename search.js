@@ -1,19 +1,19 @@
-var xhr = require('xhr');
-
-function search(endpoint, source, accessToken, proximity, bbox, types, query, callback) {
-  var searchTime = new Date();
-  var uri = endpoint + '/geocoding/v5/' +
+const search = async (endpoint, source, accessToken, proximity, bbox, types, query) => {
+  const uri = endpoint + '/geocoding/v5/' +
     source + '/' + encodeURIComponent(query) + '.json' +
     '?access_token=' + accessToken +
     (proximity ? '&proximity=' + proximity : '') +
     (bbox ? '&bbox=' + bbox : '') +
-    (types ? '&types=' + encodeURIComponent(types) : '');
-  xhr({
-    uri: uri,
-    json: true
-  }, function(err, res, body) {
-    callback(err, res, body, searchTime);
-  });
+    (types ? '&types=' + encodeURIComponent(types) : '')
+
+  const response = await fetch(uri)
+  if (response.status === 200) {
+    const result = await response.json()
+
+    return result
+  } else {
+    return null
+  }
 }
 
-module.exports = search;
+export default search
