@@ -5,7 +5,8 @@ forked repo
 ```
 
 ```
-npm install @mapbox/react-geocoder
+npm i react-geocoder-mapbox
+yarn add react-geocoder-mapbox
 ```
 
 A geocoder component using Mapbox.

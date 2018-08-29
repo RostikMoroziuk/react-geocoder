@@ -13,6 +13,7 @@ class Geocoder extends PureComponent {
   static propTypes = {
     endpoint: PropTypes.string,
     source: PropTypes.string,
+    containerClass: PropTypes.string,
     inputClass: PropTypes.string,
     resultClass: PropTypes.string,
     resultsClass: PropTypes.string,
@@ -63,7 +64,7 @@ class Geocoder extends PureComponent {
       value: place.place_name
     })
     // focus on the input after click to maintain key traversal
-    ReactDOM.findDOMNode(this.refs.input).focus()
+    ReactDOM.findDOMNode(this.inputRef).focus()
 
     return false
   }
@@ -156,21 +157,21 @@ class Geocoder extends PureComponent {
     this.props.onSelect(place)
     this.setState({ focus: listLocation })
     // focus on the input after click to maintain key traversal
-    ReactDOM.findDOMNode(this.refs.input).focus()
+    ReactDOM.findDOMNode(this.inputRef).focus()
 
     return false
   }
 
   componentDidMount () {
     if (this.props.focusOnMount) {
-      ReactDOM.findDOMNode(this.refs.input).focus()
+      ReactDOM.findDOMNode(this.inputRef).focus()
     }
   }
 
   render () {
     const input =
       <input
-        ref='input'
+        ref={input => this.inputRef = input}
         className={this.props.inputClass}
         onChange={this.onInput}
         onKeyDown={this.onKeyDown}
@@ -186,11 +187,7 @@ class Geocoder extends PureComponent {
       <div
         onBlur={this.hideDropdown}
         onFocus={this.showDropdown}
-        style={{
-          position: 'absolute',
-          zIndex: 10,
-          width: '100%'
-        }}
+        className={this.props.containerClass}
       >
         {this.props.inputPosition === 'top' && input}
         {!!this.state.results.length && this.state.isActive &&
