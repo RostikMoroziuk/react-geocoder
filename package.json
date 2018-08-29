@@ -1,5 +1,5 @@
 {
-  "name": "@mapbox/react-geocoder",
+  "name": "react-geocoder",
   "version": "2.5.0",
   "description": "a mapbox geocoder component",
   "main": "index.js",
@@ -7,10 +7,7 @@
     "test": "tape test.js",
     "start": "watchify example/site.js -o example/bundle.js & st -nc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:mapbox/react-geocoder.git"
-  },
+  "repository": "mapbox/react-geocoder.git",
   "browserify": {
     "transform": [
       "babelify"
@@ -37,7 +34,6 @@
     "watchify": "^2.1.0"
   },
   "dependencies": {
-    "xhr": "^1.17.0",
     "babelify": "^6.0.0",
     "react": "0.13.x"
   }
