@@ -70,8 +70,11 @@ class Geocoder extends PureComponent {
   }
 
   onInput = async e => {
-    this.setState({ loading: true })
     const value = e.target.value
+    this.setState({
+      loading: true,
+      value
+    })
     if (value === '') {
       this.setState({
         results: [],
@@ -90,8 +93,6 @@ class Geocoder extends PureComponent {
       )
       this.onResult(result)
     }
-
-    this.setState({ value })
   }
 
   onResult = result => {
