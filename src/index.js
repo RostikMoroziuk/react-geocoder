@@ -28,6 +28,7 @@ class Geocoder extends PureComponent {
     showLoader: PropTypes.bool,
     focusOnMount: PropTypes.bool,
     types: PropTypes.string,
+    countries: PropTypes.string,
     id: PropTypes.string,
     name: PropTypes.string
   }
@@ -45,6 +46,7 @@ class Geocoder extends PureComponent {
     proximity: '',
     bbox: '',
     types: '',
+    countries: '',
     onSuggest: function () {},
     focusOnMount: true
   }
@@ -89,6 +91,7 @@ class Geocoder extends PureComponent {
         this.props.proximity,
         this.props.bbox,
         this.props.types,
+        this.props.countries,
         value
       )
       this.onResult(result)
