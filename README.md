@@ -15,6 +15,9 @@ A geocoder component using Mapbox.
 
 An `accessToken` is assumed to be a valid Mapbox accessToken.
 
+More information:
+https://www.mapbox.com/api-documentation/#geocoding
+
 ```
 <Geocoder
   accessToken=required string
@@ -32,6 +35,11 @@ An `accessToken` is assumed to be a valid Mapbox accessToken.
   proximity=optional string, default '',
   bbox=optional string, default '',
   types=optional string, default '',
+  language=optional string, default '',
+  countries=optional string, default '',
+  fuzzyMatch=optional bool, default true,
+  limit=optional string, default '5',
+  routing=optional bool, default false,
   focusOnMount=optional bool, default true
   />
 ```

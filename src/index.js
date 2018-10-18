@@ -28,6 +28,11 @@ class Geocoder extends PureComponent {
     showLoader: PropTypes.bool,
     focusOnMount: PropTypes.bool,
     types: PropTypes.string,
+    language: PropTypes.string,
+    countries: PropTypes.string,
+    fuzzyMatch: PropTypes.bool,
+    limit: PropTypes.string,
+    routing: PropTypes.bool,
     id: PropTypes.string,
     name: PropTypes.string
   }
@@ -45,6 +50,11 @@ class Geocoder extends PureComponent {
     proximity: '',
     bbox: '',
     types: '',
+    countries: '',
+    language: '',
+    fuzzyMatch: true,
+    limit: '5',
+    routing: false,
     onSuggest: function () {},
     focusOnMount: true
   }
@@ -89,6 +99,11 @@ class Geocoder extends PureComponent {
         this.props.proximity,
         this.props.bbox,
         this.props.types,
+        this.props.language,
+        this.props.countries,
+        this.props.fuzzyMatch,
+        this.props.limit,
+        this.props.routing,
         value
       )
       this.onResult(result)
