@@ -4,7 +4,7 @@ const search = async (endpoint, source, accessToken, proximity, bbox, types, cou
     '?access_token=' + accessToken +
     (proximity ? '&proximity=' + proximity : '') +
     (bbox ? '&bbox=' + bbox : '') +
-    (types ? '&types=' + encodeURIComponent(types) : '')
+    (types ? '&types=' + encodeURIComponent(types) : '') +
     (countries ? '&countries=' + encodeURIComponent(countries) : '')
 
   const response = await fetch(uri)
