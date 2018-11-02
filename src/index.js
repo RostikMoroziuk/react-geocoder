@@ -29,7 +29,8 @@ class Geocoder extends PureComponent {
     focusOnMount: PropTypes.bool,
     types: PropTypes.string,
     id: PropTypes.string,
-    name: PropTypes.string
+    name: PropTypes.string,
+    initialValue: PropTypes.string
   }
 
   static defaultProps = {
@@ -53,7 +54,7 @@ class Geocoder extends PureComponent {
     results: [],
     focus: null,
     loading: false,
-    value: '',
+    value: this.props.initialValue || '',
     isActive: false
   }
 
